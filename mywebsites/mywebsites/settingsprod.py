@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-4&k=w8(10%#k)b=h-go5t%ewd$@aw%!x7qx)shu^zvq($#y3o-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+        "apigcohs.cybfyafrica.com", "https://apigcohs.cybfyafrica.com", "gcohs.cybfyafrica.com"]
 
 STRIPE_SECRET_KEY = 'sk_test_51HIHiuKBJV2qeWbD4IBpAODack7r7r9LJ0Y65zSFx7jUUwgy2nfKEgQGvorv1p2xp7tgMsJ5N9EW7K1lBdPnFnyK00kdrS27cj'
 
@@ -51,7 +52,10 @@ INSTALLED_APPS = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
+    "https://gcohs.cybfyafrica.com"
   ]
+
+CSRF_TRUSTED_ORIGINS = ['https://apigcohs.cybfyafrica.com', 'https://gcohs.cybfyafrica.com', 'https://*.127.0.0.1']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -90,7 +94,7 @@ WSGI_APPLICATION = 'mywebsites.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql.psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'gcohs',
         'USER': 'gcohsuser',
         'PASSWORD': 'gcohsuserpassword',
@@ -135,6 +139,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = '/webapps/gcohs//venv_gcohs/gcohs/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/ 'media/'
 
